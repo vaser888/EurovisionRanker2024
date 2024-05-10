@@ -1,0 +1,65 @@
+body, html {
+    font: 18px 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #37373a;
+    color: white;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.listItem {
+    display: flex;
+    border:1px solid white;
+    margin: 10px 0px
+}
+
+.moveButtons {
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px;
+}
+.rankNumber {
+    display: flex;
+    align-self: center;
+    text-align: center;
+    width: 18px;
+}
+
+.div3 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+button {
+    flex-grow: 1;
+    padding: 0px 6px;
+}
+
+textarea {
+    resize: none;
+}
+
+form{
+    display: flex;
+}
+
+.saveButton{
+    padding: 5px 45px;
+
+}
+
+.saveArea{
+    display: flex;
+    top: 0;
+    position: sticky;
+    padding: 8px 8px;
+    background-color: #37373a;
+    flex-grow: 1;
+}
