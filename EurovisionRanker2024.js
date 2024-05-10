@@ -11,8 +11,17 @@ window.onload = function() {
     
     document.querySelectorAll("#rankNumber").forEach((e)=>{
         e.addEventListener("change", function (event){
-            console.log(this.parentElement, this.value);
-            console.log(e.parentElement.nextElementSibling.children[0].value)
+
+            var t = document.querySelectorAll(".listItem");
+
+            var currentItem = this.parentElement;
+            var destinationValue = this.value;
+            console.log(this.parentElement, this.value, t);
+            var destinationItem = t[destinationValue];
+            console.log(t[destinationValue])
+            currentItem.parentNode.insertBefore(currentItem,destinationItem)
+
+
             // get value to go to
             let gotoNum = this.value;
             //check number below
@@ -20,7 +29,7 @@ window.onload = function() {
 
             if(gotoNum >= numBelow){
                 for (i = numBelow; i <= gotoNum; i++){
-                    console.log(i);
+                    //console.log(i);
                 }
             }
 
@@ -28,6 +37,10 @@ window.onload = function() {
 
         })
     })
+    
+}
+
+function reoderValues() {
     
 }
 
