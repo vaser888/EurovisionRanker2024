@@ -10,28 +10,29 @@ window.onload = function() {
     }
     
     document.querySelectorAll("#rankNumber").forEach((e)=>{
+
         e.addEventListener("change", function (event){
 
-            var t = document.querySelectorAll(".listItem");
-
+            var listItemArray = document.querySelectorAll(".listItem");
+            var oldValue = this.getAttribute("data");
             var currentItem = this.parentElement;
             var destinationValue = this.value;
-            console.log(this.parentElement, this.value, t);
-            var destinationItem = t[destinationValue];
-            console.log(t[destinationValue])
-            currentItem.parentNode.insertBefore(currentItem,destinationItem)
-
-
-            // get value to go to
-            let gotoNum = this.value;
-            //check number below
-            let numBelow = e.parentElement.nextElementSibling.children[0].value
-
-            if(gotoNum >= numBelow){
-                for (i = numBelow; i <= gotoNum; i++){
-                    //console.log(i);
-                }
+            console.log(oldValue, destinationValue)
+            if (destinationValue > oldValue){
+                //console.log(this.parentElement);
+                var destinationItem = listItemArray[destinationValue-1];
+                console.log("o:"+oldValue, "d:"+destinationValue, "t:"+this.value ,"l:"+listItemArray[destinationValue-1])
+                currentItem.parentNode.insertBefore(currentItem,destinationItem.nextSibling);
             }
+            else{
+                //console.log(this.parentElement);
+                var destinationItem = listItemArray[destinationValue-1];
+                console.log("o:"+oldValue, "d:"+destinationValue, "t:"+this.value ,"l:"+listItemArray[destinationValue-1])
+                //console.log(this.value ,listItemArray[destinationValue]);
+                currentItem.parentNode.insertBefore(currentItem,destinationItem);
+            }
+
+            reoderValues();
 
 
 
@@ -41,7 +42,11 @@ window.onload = function() {
 }
 
 function reoderValues() {
-    
+    inputValueArray = document.querySelectorAll("#rankNumber");
+    for (i=0; i<inputValueArray.length; i++){
+        inputValueArray[i].value = i + 1;
+        inputValueArray[i].setAttribute("data", i + 1)
+    }
 }
 
 
@@ -66,6 +71,7 @@ function createCountyRank(rankNum, country, songName, notes, id){
     var div1 = document.createElement("input");
     div1.setAttribute("class", "rankNumber");
     div1.setAttribute("id", "rankNumber");
+    div1.setAttribute("data", rankNum);
     div1.setAttribute("autocomplete", "off");
     div1.value = rankNum;
     form.appendChild(div1);
