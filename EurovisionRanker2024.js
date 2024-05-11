@@ -18,22 +18,22 @@ window.onload = function() {
             var currentItem = this.parentElement;
             var destinationValue = this.value;
             console.log(oldValue, destinationValue)
-            if (destinationValue > oldValue){
+            if (destinationValue > oldValue){ // if the original value is less than the newer value location
                 //console.log(this.parentElement);
                 var destinationItem = listItemArray[destinationValue-1];
-                console.log("o:"+oldValue, "d:"+destinationValue, "t:"+this.value ,"l:"+listItemArray[destinationValue-1])
+                console.log("o:"+oldValue, "d:"+destinationValue, "t:"+this.value ,listItemArray[destinationValue-1])
                 currentItem.parentNode.insertBefore(currentItem,destinationItem.nextSibling);
             }
             else{
                 //console.log(this.parentElement);
                 var destinationItem = listItemArray[destinationValue-1];
-                console.log("o:"+oldValue, "d:"+destinationValue, "t:"+this.value ,"l:"+listItemArray[destinationValue-1])
+                console.log("o:"+oldValue, "d:"+destinationValue, "t:"+this.value ,listItemArray[destinationValue-1])
                 //console.log(this.value ,listItemArray[destinationValue]);
                 currentItem.parentNode.insertBefore(currentItem,destinationItem);
             }
 
             reoderValues();
-
+            save();
 
 
         })
